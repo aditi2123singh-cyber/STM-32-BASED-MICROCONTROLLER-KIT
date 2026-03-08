@@ -1,0 +1,7 @@
+void SystemInit(void)
+{
+    RCC->CR |= RCC_CR_HSEON;     // Enable external clock
+    while(!(RCC->CR & RCC_CR_HSERDY));
+
+    RCC->CFGR |= RCC_CFGR_SW_HSE; // Select HSE as system clock
+}
